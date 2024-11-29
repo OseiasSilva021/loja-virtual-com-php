@@ -15,11 +15,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 }
 
-echo "esses são os dados enviados: <br>
-Nome do Produto: $nome <br>
-Preço do Produto; $preco <br>
-Descrição do Produto: $descricao <br>
-Imagem do Produto: $imagem";
+$stmt = $conn->prepare("INSERT INTO produtos (nome, preco, descricao, imagem) VALUES (?, ?, ?, ?)");
+
+$stmt->bind_param("ssss", $nome, $preco, $descricao, $imagem);
 
 
+if ($stmt->execute()) {
+    echo "Parabéns, o nome, o preço, a descrição e a imagem do produto está salvo no banco de dados!";
+}
+else{
+    echo "deu ruim no banco de dados, mano";
+}
+
+$stmt->close();
+$conn->close()
 ?>

@@ -50,7 +50,7 @@ $dbname);
         <h1>Seja muito Bem Vindo, Admin!</h1>
      <h2>Aqui você terá a oportunidade de cadastrar, editar, visualizar ou deletar produtos de sua loja virtual. Fique à vontade!</h2>
 
-     <form action="produtos.php" method="POST" >
+     <form action="produtos.php" method="POST">
         <input type="text"  name="nome" placeholder="Qual é o nome do Produto?">
         <input type="text" name="descricao" placeholder="Qual é a descrição do Produto?">
         <input type="number" name="preco" placeholder="Qual é o preço do Produto?">
