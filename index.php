@@ -74,7 +74,7 @@ button:hover {
 <body>
     <div class="login-container">
         <h2>Login</h2>
-        <form id="loginForm" method="POST" action="login.php" >
+        <form id="loginForm" method="POST" action="user.php" >
             <div class="input-group">
                 <label for="nomedousuario">Nome de Usuário</label>
                 <input type="text" id="nomedousuario" name="nomedousuario" placeholder="Digite seu nome de usuário" required>
@@ -110,7 +110,7 @@ button:hover {
             // Verifica se os campos estão vazios
             
              if(username == "oseias" && password ==  "123"){
-                formulario.action = "paginadoadmin.php"
+                formulario.action = "produtos.php"
                 
             }
             
