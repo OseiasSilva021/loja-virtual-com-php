@@ -19,7 +19,8 @@ $stmt = $conn->prepare("INSERT INTO usuarios (nome, senha) VALUES (?, ?)");
 $stmt->bind_param("ss", $nomedousuario, $senhadousuario);
 
 
-
+$sql = "SELECT id, nome, preco, descricao, imagem, tipo_imagem FROM produtos";
+$result = $conn->query($sql);
 
 ?>
 
@@ -39,34 +40,39 @@ $stmt->bind_param("ss", $nomedousuario, $senhadousuario);
     <h1>
         Essa é a Página do Usuário
     </h1>
-    <div class="container mt-5">
-        <h1 class="text-center">Produtos Cadastrados</h1>
-        <div class="row">
-            <?php
-            
-                $sql = "SELECT * FROM produtos";
-                $result = $conn->query($sql);
-            // Verifica se há produtos no banco
-            if ($result->num_rows > 0) {
-                // Loop para criar um card para cada produto
-                while ($row = $result->fetch_assoc()) {
-                    echo '<div class="col-md-4 mb-4">';
-                    echo '<div class="card">';
-                    echo '<img src="' . $row["imagem"] . '" class="card-img-top" alt="Imagem do Produto">';
-                    echo '<div class="card-body">';
-                    echo '<h5 class="card-title">' . $row["nome"] . '</h5>';
-                    echo '<p class="card-text">' . $row["descricao"] . '</p>';
-                    echo '<p class="card-text"><strong>Preço:</strong> R$ ' . $row["preco"] . '</p>';
-                    echo '<a href="#" class="btn btn-primary">Comprar Agora</a>';
-                    echo '</div></div></div>';
+    <div class="container containerdosprodutos">
+            <div class="row">
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        $nome = htmlspecialchars($row["nome"]);
+                        $preco = htmlspecialchars($row["preco"]);
+                        $descricao = htmlspecialchars($row["descricao"]);
+                        $imagem = base64_encode($row["imagem"]); // Codifica a imagem em base64
+                        $tipo_imagem = htmlspecialchars($row["tipo_imagem"]);
+                ?>
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img src="data:<?= $tipo_imagem ?>;base64,<?= $imagem ?>" class="card-img-top" alt="<?= $nome ?>">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo $nome; ?></h5>
+                                    <p class="card-text">
+                                        <strong>Preço:</strong> R$ <?php echo $preco; ?><br>
+                                        <strong>Descrição:</strong> <?php echo $descricao; ?>
+                                    </p>
+                                    <a href="#" class="btn btn-primary">Comprar Agora</a>
+                                </div>
+                            </div>
+                        </div>
+                <?php
+                    }
+                } else {
+                    echo "<p class='text-center'>Nenhum produto cadastrado.</p>";
                 }
-            } else {
-                echo '<p class="text-center">Nenhum produto disponível no momento.</p>';
-            }
 
-            $stmt->close();
-            $conn->close();
-            ?>
+                $conn->close();
+                ?>
+            </div>
         </div>
     </div>
  
