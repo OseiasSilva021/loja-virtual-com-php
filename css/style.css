@@ -1,0 +1,21 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+
+}
+header{
+    background-color: rgb(187, 231, 255);
+    padding: 1%;
+}
+.card{
+margin-top: 2%;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
