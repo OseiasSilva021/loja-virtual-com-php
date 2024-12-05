@@ -49,10 +49,23 @@ $result = $conn->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Usuário</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css\style.css">
+
+    <style>
+        .titulodeboasvindas{
+            text-align: center;
+        }
+        #deslogar{
+            background-color: rgb(72, 165, 215);
+            width: 13%;
+            margin: auto;
+            border: solid 1px black;
+            border-radius: 3px;
+        }
+    </style>
 </head>
 <body>
-<h1>Bem-vindo, <?= htmlspecialchars($_SESSION['user_nome']); ?>!</h1>
-<a href="logout.php">Sair</a>
+
 
 <header>
     <nav>
@@ -61,6 +74,10 @@ $result = $conn->query($sql);
         <a href="carrinho.php"><h3 id="carrinho">Carrinho</h3></a>
     </nav>
 </header>
+<h1 class="titulodeboasvindas">Bem-vindo, <?= htmlspecialchars($_SESSION['user_nome']); ?>!</h1>
+<h3 class="titulodeboasvindas" id="deslogar">
+<a href="logout.php">Sair da conta</a>
+</h3>
 
 <div class="container containerdosprodutos">
     <div class="row">
