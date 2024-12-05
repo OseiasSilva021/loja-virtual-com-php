@@ -59,7 +59,7 @@ Este é o meu **primeiro projeto real** de E-Commerce, desenvolvido enquanto eu 
    - O usuário pode adicionar, visualizar e remover itens do carrinho.
 
 ### 4. **Administração de Produtos** 🔧
-   - O administrador pode acessar a página **admin.php** para adicionar novos produtos à loja.
+   - O administrador pode acessar a página **produtos.php** para adicionar novos produtos à loja.
    - Na página do admin, é possível registrar novos produtos com nome, preço, descrição e imagem.
    - Os produtos cadastrados pelo admin são exibidos automaticamente na página do usuário **user.php** após o login.
 
