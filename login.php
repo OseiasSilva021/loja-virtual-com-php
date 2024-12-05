@@ -44,9 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Login</title>
 </head>
 <body>
-    <form method="POST">
+    <form method="POST" id="form">
+        <input type="text" placeholder="Insira seu nome (opcional)" id="nome">
         <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="senha" placeholder="Senha" required>
+        <input type="password" name="senha" placeholder="Senha" required id="senha">
         <button type="submit">Entrar</button>
     </form>
 </body>
