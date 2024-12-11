@@ -1,107 +1,99 @@
-# E-Commerce PHP Project 🛒💻
+# 🛍️ Loja Virtual com PHP 🌐
 
-Este é o meu **primeiro projeto real** de E-Commerce, desenvolvido enquanto eu estava aprendendo PHP, MySQL, HTML/CSS e JavaScript. Durante o desenvolvimento, fui adquirindo mais conhecimentos e aplicando-os para criar um sistema funcional de vendas online. Este projeto é **open source**, então todos têm a liberdade de criticar, comentar e aprimorar o que eu criei. Desde já, agradeço muito a todos que contribuírem ou darem feedback!
+## 📝 Descrição do Projeto
 
-## Funcionalidades 🚀
+Este é um projeto de uma loja virtual simples desenvolvida em PHP, utilizando Docker para criar um ambiente de desenvolvimento isolado com Apache, PHP e MySQL. 🚀 O objetivo do projeto é simular o funcionamento de uma loja online, com funcionalidades essenciais para uma experiência de compra completa! 🛒
 
-### 1. **Registro de Usuário** 📝
-   - Os usuários podem se registrar com um **email** e **senha**.
-   - A senha é criptografada utilizando **password_hash** para garantir maior segurança.
-   - O sistema verifica se o **email** já está registrado para evitar duplicidades.
+## 🗂️ Estrutura do Projeto
 
-### 2. **Login de Usuário** 🔑
-   - Após o registro, o usuário pode fazer login com seu **email** e **senha**.
-   - A senha é verificada com **password_verify** para autenticação segura.
-   - Se as credenciais estiverem corretas, o usuário é redirecionado para a página do usuário (**user.php**).
+```
+loja-virtual-com-php/
+│
+├── docker-compose.yml     # 🐳 Configuração do Docker Compose
+├── Dockerfile             # 🐋 Configuração do Docker para container PHP
+└── novo_projeto/          # 🌐 Diretório do projeto web
+    ├── css/               # 🎨 Arquivos de estilo CSS
+    ├── includes/          # 📁 Arquivos PHP de inclusão
+    ├── adicionar_carrinho.php    # 🛒 Adicionar produtos ao carrinho
+    ├── autenticacao.php          # 🔐 Lógica de autenticação
+    ├── carrinho.php              # 🛍️ Página do carrinho
+    ├── conexao.php               # 💾 Conexão com banco de dados
+    ├── index.php                 # 🏠 Página principal
+    ├── login.php                 # 🔑 Página de login
+    ├── logout.php                # 🚪 Página de logout
+    ├── produtos.php              # 📦 Exibição de produtos
+    ├── README.md                 # 📄 Documentação do projeto
+    ├── registrar.php             # 📝 Registro de usuários
+    ├── remover_carrinho.php      # ❌ Remover produtos do carrinho
+    └── user.php                  # 👤 Gestão de usuário
+```
 
-### 3. **Carrinho de Compras** 🛍️
-   - O usuário pode adicionar produtos ao **carrinho** diretamente da página de exibição de produtos (**user.php**).
-   - A quantidade de produtos no carrinho é mantida enquanto o usuário estiver logado.
-   - Funcionalidade de **remover itens do carrinho**.
-   - Mesmo que o usuário saia, os produtos permanecem no carrinho até o login novamente.
+## 🛠️ Tecnologias Utilizadas
 
-### 4. **Exibição de Produtos** 🏷️
-   - Os produtos são recuperados de um banco de dados **MySQL** e exibidos na página do usuário.
-   - Cada produto tem um **nome**, **preço**, **descrição**, **imagem** e **tipo de imagem**.
-   - Os usuários podem visualizar a lista de produtos cadastrados e adicioná-los ao carrinho.
+- **PHP** 🐘: Linguagem de programação para o backend
+- **MySQL** 🗄️: Banco de dados para armazenar informações
+- **Docker** 🐳: Criação de containers de desenvolvimento
+- **Apache** 🌐: Servidor web para aplicação PHP
+- **CSS** 🎨: Estilização da interface
 
-### 5. **Página de Admin** 👨‍💻
-   - O **administrador** pode acessar uma página dedicada de administração onde pode **registrar novos produtos** para a loja.
-   - O admin pode inserir **nome**, **descrição**, **preço**, **imagem** e **tipo de imagem** dos produtos.
-   - Os produtos registrados são automaticamente **salvos no banco de dados** e **renderizados dinamicamente** na página do usuário logado (**user.php**).
-   - Essa página oferece ao admin total controle sobre os produtos disponíveis na loja, garantindo que o catálogo esteja sempre atualizado.
+## 🚀 Como Rodar o Projeto
 
-### 6. **Banco de Dados** 💾
-   - A plataforma utiliza um banco de dados **MySQL** com tabelas para usuários, produtos e carrinho de compras.
-   - Relacionamento entre produtos e usuários para garantir que cada carrinho seja associado ao usuário correto.
+### 📋 Pré-requisitos
 
-## Como Rodar o Projeto ⚙️
+- Docker 🐳
+- Docker Compose 🐋
 
-### 1. **Requisitos** 🔧
-   - **PHP** versão 7 ou superior
-   - **MySQL**
-   - **Apache** (ou servidor web compatível)
-   - **XAMPP** ou **MAMP** recomendado para ambiente local
+### 1️⃣ Clonar o Repositório
 
-### 2. **Instalação** 🛠️
-   - Clone o repositório:
-     ```bash
-     git clone https://github.com/seu-repositorio/loja-virtual-com-php.git
-     ```
-   - Coloque o projeto na pasta `htdocs` (se estiver usando XAMPP) ou na pasta equivalente de seu servidor web.
-   - Importe o banco de dados **bancodedadosdoecommerce** no MySQL.
-   - Configure as credenciais de conexão com o banco de dados no arquivo de conexão.
+```bash
+git clone <URL-do-repositório>
+cd loja-virtual-com-php
+```
 
-### 3. **Uso** 📱
-   - Acesse o **login.php** para fazer login ou se registrar.
-   - Após o login, o usuário será redirecionado para **user.php** onde poderá adicionar produtos ao carrinho.
-   - O carrinho pode ser acessado a qualquer momento através do link na página do usuário.
-   - O usuário pode adicionar, visualizar e remover itens do carrinho.
+### 2️⃣ Iniciar Containers
 
-### 4. **Administração de Produtos** 🔧
-   - O administrador pode acessar a página **produtos.php** para adicionar novos produtos à loja.
-   - Na página do admin, é possível registrar novos produtos com nome, preço, descrição e imagem.
-   - Os produtos cadastrados pelo admin são exibidos automaticamente na página do usuário **user.php** após o login.
+```bash
+docker-compose up -d
+```
 
-## Estrutura do Banco de Dados 🗄️
+### 3️⃣ Acessar o Projeto
 
-- **Tabela `usuarios`**:
-  - `id` (int)
-  - `nome` (varchar)
-  - `email` (varchar, único)
-  - `senha` (varchar)
+🌐 Abra seu navegador em: `http://localhost:8000`
 
-- **Tabela `produtos`**:
-  - `id` (int)
-  - `nome` (varchar)
-  - `descricao` (text)
-  - `preco` (float)
-  - `imagem` (longblob)
-  - `tipo_imagem` (varchar)
+## ✨ Funcionalidades
 
-- **Tabela `carrinho`**:
-  - `id` (int)
-  - `usuario_id` (int, foreign key para `usuarios`)
-  - `produto_id` (int, foreign key para `produtos`)
-  - `quantidade` (int)
+- 🔐 **Login e Cadastro**
+- 🛒 **Carrinho de Compras**
+- 📦 **Visualização de Produtos**
 
-## Tecnologias Utilizadas 💻
+## 💾 Banco de Dados
 
-- **PHP**: Backend e lógica do sistema
-- **MySQL**: Banco de dados para armazenar usuários, produtos e carrinho
-- **HTML/CSS**: Estrutura e estilo das páginas
-- **Bootstrap**: Framework de front-end para facilitar o design responsivo
+### 🔑 Credenciais
 
-## Possíveis Melhorias Futuras 🚧
+- **Usuário**: `root`
+- **Senha**: `1234`
+- **Banco de Dados**: `lojaphp`
 
-- Implementação de **checkout** e **pagamento** 💳.
-- Aumento de funcionalidades como **categorias de produtos** e **filtros** 🔍.
-- Adição de **comentários e avaliações de produtos** pelos usuários ⭐.
+### 🏗️ Criação do Banco de Dados
 
-## Contribuições 🤝
+```bash
+docker exec -it mysql_container_new mysql -u root -p
+```
 
-Sinta-se à vontade para contribuir com melhorias! Abra um **pull request** ou envie uma **issue** para discutir novas funcionalidades ou correções de bugs.
+```sql
+CREATE DATABASE lojaphp;
+```
 
-## Licença 📜
+## 🤝 Contribuições
 
-Este projeto é de código aberto e está licenciado sob a licença **MIT**.
+Adoraríamos suas contribuições! 🌟
+- Abra issues
+- Envie pull requests
+
+## 📄 Licença
+
+📋 Licenciado sob a MIT License. 
+
+---
+
+🚀 **Divirta-se construindo e explorando sua loja virtual!** 🛍️👨‍💻👩‍💻
