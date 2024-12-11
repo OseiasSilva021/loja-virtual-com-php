@@ -1,0 +1,28 @@
+services:
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Ou o caminho relativo para o seu Dockerfile
+    container_name: php_container_new
+    volumes:
+      - ./novo_projeto:/var/www/html
+    ports:
+      - "8000:80"
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_container_new
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: lojaphp
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: 123456
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data_new:/var/lib/mysql
+
+volumes:
+  mysql_data_new:

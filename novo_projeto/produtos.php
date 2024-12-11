@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bancodedadosdoecommerce";
+include 'conexao.php';
 
 // Criação da conexão
 $conn = new mysqli($servername, $username, $password, $dbname);

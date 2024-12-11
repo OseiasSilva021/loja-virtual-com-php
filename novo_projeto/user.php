@@ -8,11 +8,7 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 // Conexão com o banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bancodedadosdoecommerce";
-$conn = new mysqli($servername, $username, $password, $dbname);
+include 'conexao.php';
 
 if (isset($_POST['adicionar_carrinho'])) {
     $produto_id = $_POST['produto_id'];

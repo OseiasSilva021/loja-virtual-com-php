@@ -1,10 +1,6 @@
 <?php
 // Conexão com o banco de dados
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bancodedadosdoecommerce";
-$conn = new mysqli($servername, $username, $password, $dbname);
+include 'conexao.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST["nome"];

@@ -1,7 +1,7 @@
 <?php
 session_start(); // Inicia ou retoma a sessão
 
-require_once 'conexao.php'; // Conexão com o banco
+include 'conexao.php';// Conexão com o banco
 
 // Função para autenticar o usuário
 function autenticarUsuario($email, $senha) {
